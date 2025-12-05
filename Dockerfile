@@ -1,4 +1,4 @@
-FROM playwright/chromium:latest
+FROM mcr.microsoft.com/playwright:latest
 
 WORKDIR /app
 
@@ -6,7 +6,7 @@ ENV PLAYWRIGHT_BROWSERS_PATH=0
 ENV NODE_ENV=production
 
 COPY package.json package-lock.json* ./
-RUN npm install --only=production
+RUN npm install --omit=dev
 
 COPY . .
 
